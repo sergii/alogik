@@ -1,0 +1,9 @@
+<%= flash[:notice] %>
+
+<h2>Listing users</h2>
+
+<% @users.each do |user| %>
+  <%= user.id %> 
+  <%= user.email %>
+  <br>
+<% end %>
