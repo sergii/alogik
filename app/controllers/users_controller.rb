@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :require_no_user, :only => [:new, :create]
+  before_action :require_user, :only => [:index]
+
   def new
     @user = User.new
   end
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:user][:id])
+    @user = current_user
   end
 
   def update

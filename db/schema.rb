@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130703204612) do
+ActiveRecord::Schema.define(version: 20130703225037) do
 
   create_table "user_sessions", force: true do |t|
     t.datetime "created_at"
@@ -19,11 +19,13 @@ ActiveRecord::Schema.define(version: 20130703204612) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "username"
     t.string   "email"
-    t.string   "password"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "persistence_token"
   end
 
 end

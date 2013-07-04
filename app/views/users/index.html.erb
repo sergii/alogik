@@ -3,7 +3,8 @@
 <h2>Listing users</h2>
 
 <% @users.each do |user| %>
-  <%= user.id %> 
+  <%= user.id %>
+  <b><%= user.username %></b>
   <%= user.email %>
   <br>
 <% end %>
