@@ -7,12 +7,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    params.permit!
-    user = User.create(params[:user])
-    if user
+    @user = User.new(user_params)
+
+    if @user.save
       redirect_to users_url, notice: "Congratulations! Account was successfully created!"
     else
-      render :new, alert: "Something was wrong"
+      render :new
     end
   end
 
@@ -20,11 +20,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def edit
-    @user = current_user
-  end
+  private
 
-  def update
-    
-  end
+    def user_params
+      params.require(:user).permit(:username, :email, :password)
+    end
 end
