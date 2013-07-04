@@ -14,17 +14,21 @@
   <% end %>
 
   <%= f.label :username %><br />
-  <%= f.text_field :username %><br />
+  <%= f.text_field :username %><%= @user.errors[:username].join(', ') %><br />
   <br />
+
   <%= f.label :email %><br />
-  <%= f.email_field :email %><br />
+  <%= f.email_field :email %><%= @user.errors[:email].join(', ') %><br />
   <br />
+
   <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
+  <%= f.password_field :password %><%= @user.errors[:password].join(', ') %><br />
   <br />
+
   <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %><%= @user.errors[:password_confirmation].join(', ') %><br />
   <br />
+
   <%= f.submit "Sign up" %>
 
 <% end %>
